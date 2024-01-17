@@ -1,0 +1,37 @@
+{
+  "name": "scientific-calculator",
+  "version": "1.0.0",
+  "description": "A scientific calculator built with electron.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron src/js/main.js",
+    "build:css": "postcss src/css/tailwind.css -o public/build/css/tailwind.css",
+    "start:css": "npm run build:css && npm run start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thanasis09/scientific-calculator.git"
+  },
+  "keywords": [
+    "calculator"
+  ],
+  "author": "Thanasis Lanaras",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Thanasis09/scientific-calculator/issues"
+  },
+  "homepage": "https://github.com/Thanasis09/scientific-calculator#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "electron": "^28.1.4",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "font-awesome": "^4.7.0"
+  }
+}
