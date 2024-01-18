@@ -7,55 +7,67 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Scientific Calculator </title>
     <link rel="stylesheet" href="../../public/build/css/tailwind.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 
 <body class="bg-gray-100 dark:bg-zinc-900 h-screen flex flex-col items-center justify-center dark:text-white">
     <div class="bg-white dark:bg-zinc-800 p-8 rounded shadow-md max-w-md w-full mb-4">
-        <div class="mb-4 text-2xl font-bold text-gray-800 dark:text-gray-300 text-right" id="result">0</div>
+        <div class="mb-4 text-2xl font-bold text-gray-800 dark:text-gray-300 text-right">
+            <input type="text" name="result" id="result" disabled value="0"
+                class="p-2 border-rounded ml-2 text-right bg-white dark:bg-zinc-800 dark:text-white">
+        </div>
         <div class="grid grid-cols-5 gap-4">
 
-            <button class="calc-buttons-1">2nd</button>
-            <button class="calc-buttons-2">π</button>
-            <button class="calc-buttons-2">e</button>
-            <button class="calc-c-button">C</button>
-            <button class="calc-buttons-1"><i class="fas fa-backspace"></i></button>
+            <button class="blue-button" id="secondBtn">2nd</button>
+            <button class="calc-buttons-2" id="piBtn">π</button>
+            <button class="calc-buttons-2" id="eBtn">e</button>
+            <button class="calc-c-button" id="clearBtn">C</button>
+            <button class="calc-buttons-1" id="backspaceBtn"><i class="fas fa-backspace"></i></button>
 
-            <button class="calc-buttons-1">x^2</button>
-            <button class="calc-buttons-2">1/x</button>
-            <button class="calc-buttons-2">|x|</button>
-            <button class="calc-buttons-1">exp</i></button>
-            <button class="calc-buttons-1">mod</i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="squareBtn">x²</button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="cubeBtn">x<sup>3</sup></button>
+            <button class="calc-buttons-2" id="reciprocalBtn">⅟x</button>
+            <button class="calc-buttons-2" id="absoluteBtn">|x|</button>
+            <button class="calc-buttons-2" id="expBtn">exp</i></button>
+            <button class="calc-buttons-2" id="modBtn">mod</i></button>
 
-            <button class="calc-buttons-1"><i class="fas fa-square-root-variable"></i></button>
-            <button class="calc-buttons-1">(</button>
-            <button class="calc-buttons-1">)</button>
-            <button class="calc-buttons-1">n!</button>
-            <button class="calc-buttons-1"><i class="fas fa-divide"></i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="sqrtBtn"><i
+                    class="fas fa-square-root-variable"></i></button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="cuberootBtn">\( \sqrt[3]{x} \)</button>
+            <button class="calc-buttons-2" id="openParenBtn">(</button>
+            <button class="calc-buttons-2" id="closeParenBtn">)</button>
+            <button class="calc-buttons-2" id="factorialBtn">n!</button>
+            <button class="calc-buttons-2" id="divideBtn"><i class="fas fa-divide"></i></button>
 
-            <button class="calc-buttons-1">x^y</button>
-            <button class="calc-buttons-1">7</button>
-            <button class="calc-buttons-1">8</button>
-            <button class="calc-buttons-1">9</button>
-            <button class="calc-buttons-1"><i class="fas fa-multiply"></i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="powerBtn">x<sup>y</sup></button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="rootBtn">\( \sqrt[y]{x} \)</button>
+            <button class="calc-buttons-1" id="num7Btn">7</button>
+            <button class="calc-buttons-1" id="num8Btn">8</button>
+            <button class="calc-buttons-1" id="num9Btn">9</button>
+            <button class="calc-buttons-2" id="multiplyBtn"><i class="fas fa-multiply"></i></button>
 
-            <button class="calc-buttons-1">10^x</button>
-            <button class="calc-buttons-1">4</button>
-            <button class="calc-buttons-1">5</button>
-            <button class="calc-buttons-1">6</button>
-            <button class="calc-buttons-1"><i class="fas fa-subtract"></i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="tenPowerBtn">10<sup>x</sup></button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="twoPowerBtn">2<sup>x</sup></button>
+            <button class="calc-buttons-1" id="num4Btn">4</button>
+            <button class="calc-buttons-1" id="num5Btn">5</button>
+            <button class="calc-buttons-1" id="num6Btn">6</button>
+            <button class="calc-buttons-2" id="subtractBtn"><i class="fas fa-subtract"></i></button>
 
-            <button class="calc-buttons-1">log</button>
-            <button class="calc-buttons-1">1</button>
-            <button class="calc-buttons-1">2</button>
-            <button class="calc-buttons-1">3</button>
-            <button class="calc-buttons-1"><i class="fas fa-add"></i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="logBtn">log</button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="logYBtn">\( \log_{y}x\)</button>
+            <button class="calc-buttons-1" id="num1Btn">1</button>
+            <button class="calc-buttons-1" id="num2Btn">2</button>
+            <button class="calc-buttons-1" id="num3Btn">3</button>
+            <button class="calc-buttons-2" id="addBtn"><i class="fas fa-add"></i></button>
 
-            <button class="calc-buttons-1">ln</button>
-            <button class="calc-buttons-1"><i class="fas fa-plus-minus"></i></button>
-            <button class="calc-buttons-1">0</button>
-            <button class="calc-buttons-1">,</button>
-            <button class="equals-button">=</button>
+            <button class="calc-buttons-2 disappear-2nd" id="lnBtn">ln</button>
+            <button class="calc-buttons-2 disappear-3rd hidden" id="expXBtn">e<sup>x</sup></button>
+            <button class="calc-buttons-1" id="plusMinusBtn"><i class="fas fa-plus-minus"></i></button>
+            <button class="calc-buttons-1" id="num0Btn">0</button>
+            <button class="calc-buttons-1" id="decimalBtn">,</button>
+            <button class="blue-button" id="equalsBtn"><i class="fas fa-equals"></i></button>
         </div>
         <button id="darkModeToggle"
             class="p-2 bg-gray-300 dark:bg-zinc-600 rounded-full text-gray-800 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-zinc-700">
@@ -64,7 +76,7 @@
     </div>
     <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
     <script src="../js/calc.js"></script>
-
+    <script type="text/javascript">MathJax.Hub.Queue(["Typeset", MathJax.Hub, "latex-content"]);</script>
 </body>
 
 </html>
