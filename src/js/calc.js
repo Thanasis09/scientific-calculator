@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const math = window.electron.math;
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
 
@@ -22,5 +23,49 @@ document.addEventListener('DOMContentLoaded', function () {
             thirdElements[i].classList.toggle('hidden');
         }
     });
+
+    // Operations
+
+    const result = document.getElementById('result');
+    const equalsBtn = document.getElementById('equalsBtn');
+    const buttons = document.querySelectorAll('.grid button[id*="Btn"]');
+    let num1 = '';
+    let num2 = '';
+    let operator = '';
+    let firstZero = false;
+
+    document.querySelectorAll('.calc-buttons-1, .calc-buttons-2').forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.id === 'clearBtn') {
+                result.value = '0';
+                return;
+            } else if (button.id === 'backspaceBtn') {
+                result.value = result.value.slice(0, -1);
+
+                if (result.value === '') result.value = '0';
+            } else {
+                if (isOperator(button.getAttribute("data-value"))) {
+                    var operator = button.getAttribute('data-value');
+                    result.value += operator;
+                } else {
+                    if (result.value === '0') {
+                        result.value = '';
+                    }
+                    result.value += button.textContent;
+                }
+            }
+        });
+    });
+
+    equalsBtn.addEventListener('click', () => {
+        calculate(result.value);
+        console.log("Equals clicked!");
+    });
+    function isOperator(value) {
+        return ['+', '-', '*', '/'].includes(value);
+    }
+    function calculate(value) {
+        result.value = math.evaluate(value);
+    }
 
 });

@@ -15,7 +15,7 @@
 <body class="bg-gray-100 dark:bg-zinc-900 h-screen flex flex-col items-center justify-center dark:text-white">
     <div class="bg-white dark:bg-zinc-800 p-8 rounded shadow-md max-w-md w-full mb-4">
         <div class="mb-4 text-2xl font-bold text-gray-800 dark:text-gray-300 text-right">
-            <input type="text" name="result" id="result" disabled value="0"
+            <input type="text" name="result" id="result" value="0" readonly
                 class="p-2 border-rounded ml-2 text-right bg-white dark:bg-zinc-800 dark:text-white">
         </div>
         <div class="grid grid-cols-5 gap-4">
@@ -23,7 +23,7 @@
             <button class="blue-button" id="secondBtn">2nd</button>
             <button class="calc-buttons-2" id="piBtn">π</button>
             <button class="calc-buttons-2" id="eBtn">e</button>
-            <button class="calc-c-button" id="clearBtn">C</button>
+            <button class="calc-buttons-1" id="clearBtn">C</button>
             <button class="calc-buttons-1" id="backspaceBtn"><i class="fas fa-backspace"></i></button>
 
             <button class="calc-buttons-2 disappear-2nd" id="squareBtn">x²</button>
@@ -33,41 +33,40 @@
             <button class="calc-buttons-2" id="expBtn">exp</i></button>
             <button class="calc-buttons-2" id="modBtn">mod</i></button>
 
-            <button class="calc-buttons-2 disappear-2nd" id="sqrtBtn"><i
-                    class="fas fa-square-root-variable"></i></button>
+            <button class="calc-buttons-2 disappear-2nd" id="sqrtBtn"><i class="fas fa-square-root-variable"></i></button>
             <button class="calc-buttons-2 disappear-3rd hidden" id="cuberootBtn">\( \sqrt[3]{x} \)</button>
             <button class="calc-buttons-2" id="openParenBtn">(</button>
             <button class="calc-buttons-2" id="closeParenBtn">)</button>
             <button class="calc-buttons-2" id="factorialBtn">n!</button>
-            <button class="calc-buttons-2" id="divideBtn"><i class="fas fa-divide"></i></button>
+            <button class="calc-buttons-2" id="divideBtn" data-value="/"><i class="fas fa-divide"></i></button>
 
             <button class="calc-buttons-2 disappear-2nd" id="powerBtn">x<sup>y</sup></button>
             <button class="calc-buttons-2 disappear-3rd hidden" id="rootBtn">\( \sqrt[y]{x} \)</button>
             <button class="calc-buttons-1" id="num7Btn">7</button>
             <button class="calc-buttons-1" id="num8Btn">8</button>
             <button class="calc-buttons-1" id="num9Btn">9</button>
-            <button class="calc-buttons-2" id="multiplyBtn"><i class="fas fa-multiply"></i></button>
+            <button class="calc-buttons-2" id="multiplyBtn" data-value="*"><i class="fas fa-multiply"></i></button>
 
             <button class="calc-buttons-2 disappear-2nd" id="tenPowerBtn">10<sup>x</sup></button>
             <button class="calc-buttons-2 disappear-3rd hidden" id="twoPowerBtn">2<sup>x</sup></button>
             <button class="calc-buttons-1" id="num4Btn">4</button>
             <button class="calc-buttons-1" id="num5Btn">5</button>
             <button class="calc-buttons-1" id="num6Btn">6</button>
-            <button class="calc-buttons-2" id="subtractBtn"><i class="fas fa-subtract"></i></button>
+            <button class="calc-buttons-2" id="subtractBtn" data-value="-"><i class="fas fa-subtract"></i></button>
 
             <button class="calc-buttons-2 disappear-2nd" id="logBtn">log</button>
             <button class="calc-buttons-2 disappear-3rd hidden" id="logYBtn">\( \log_{y}x\)</button>
             <button class="calc-buttons-1" id="num1Btn">1</button>
             <button class="calc-buttons-1" id="num2Btn">2</button>
             <button class="calc-buttons-1" id="num3Btn">3</button>
-            <button class="calc-buttons-2" id="addBtn"><i class="fas fa-add"></i></button>
+            <button class="calc-buttons-2" id="addBtn" data-value="+"><i class="fas fa-add"></i></button>
 
             <button class="calc-buttons-2 disappear-2nd" id="lnBtn">ln</button>
             <button class="calc-buttons-2 disappear-3rd hidden" id="expXBtn">e<sup>x</sup></button>
             <button class="calc-buttons-1" id="plusMinusBtn"><i class="fas fa-plus-minus"></i></button>
             <button class="calc-buttons-1" id="num0Btn">0</button>
             <button class="calc-buttons-1" id="decimalBtn">,</button>
-            <button class="blue-button" id="equalsBtn"><i class="fas fa-equals"></i></button>
+            <button class="blue-button" id="equalsBtn" data-value="="><i class="fas fa-equals"></i></button>
         </div>
         <button id="darkModeToggle"
             class="p-2 bg-gray-300 dark:bg-zinc-600 rounded-full text-gray-800 dark:text-gray-300 hover:bg-gray-400 dark:hover:bg-zinc-700">
