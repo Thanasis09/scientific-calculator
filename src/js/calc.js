@@ -41,8 +41,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             } else if (button.id === 'backspaceBtn') {
                 result.value = result.value.slice(0, -1);
-
                 if (result.value === '') result.value = '0';
+            } else if (button.id === 'piBtn'){
+                result.value += 'pi';
+            } else if (button.id === 'eBtn'){
+                result.value += 'e';
             } else {
                 if (isOperator(button.getAttribute("data-value"))) {
                     var operator = button.getAttribute('data-value');
